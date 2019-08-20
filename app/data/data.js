@@ -4,7 +4,7 @@ export const feeds = [
     "name": "Shahid Kapoor",
     "userImage": "https://homepages.cae.wisc.edu/~ece533/images/zelda.png",
     "caption": "Lorem ipsum dolor sit amet, consectetur adipiscing elit onec fermentum arcu vitae justo.",
-    "time": "10 min ago",
+    "time": 1566297863339,
     "likes": 0,
     "shared": "5k",
     "totalComments": "46k",
@@ -18,7 +18,7 @@ export const feeds = [
     "sharedUser": {
       "name": "Vikas yadav",
       "userProfile": "https://homepages.cae.wisc.edu/~ece533/images/girl.png",
-      "time": "24 min ago"
+      "time": 1566297863339
     },
     "multiImages": [
       {
@@ -39,7 +39,7 @@ export const feeds = [
     "name": "Yuvraj Singh",
     "userImage": "https://homepages.cae.wisc.edu/~ece533/images/girl.png",
     "caption": "",
-    "time": "1 hr ago",
+    "time": 1566297863339,
     "likes": 0,
     "id": 64652154584544,
     "shared": "25k",
@@ -53,14 +53,14 @@ export const feeds = [
     "sharedUser": {
       "name": "Vikas yadav",
       "userProfile": "https://homepages.cae.wisc.edu/~ece533/images/girl.png",
-      "time": "1 min ago"
+      "time": 1566297863339
     }
   },
   {
     "name": "MS Dhoni",
     "userImage": "https://homepages.cae.wisc.edu/~ece533/images/girl.png",
     "caption": "Worlds Best Player",
-    "time": "40 min ago",
+    "time": 1566297863339,
     "likes": 0,
     "id": 9875465114654654654,
     "shared": "15k",
@@ -74,16 +74,16 @@ export const feeds = [
     "sharedUser": {
       "name": "Vikas yadav",
       "userProfile": "https://homepages.cae.wisc.edu/~ece533/images/girl.png",
-      "time": "50 min ago"
+      "time": 1566297863339
     }
   },
   {
     "name": "Vihan Yadav",
     "userImage": "https://homepages.cae.wisc.edu/~ece533/images/girl.png",
     "caption": "Worlds Best Player",
-    "time": "40 min ago",
+    "time": 1566297863339,
     "likes": 0,
-    "id": 1546684654165,
+    "id": 1546684654165555,
     "shared": "15k",
     "totalComments": "30k",
     "views": "12k",
@@ -95,13 +95,13 @@ export const feeds = [
     "sharedUser": {
       "name": "Vikas yadav",
       "userProfile": "https://homepages.cae.wisc.edu/~ece533/images/girl.png",
-      "time": "40 min ago"
+      "time": 1566297863339
     }
   }, {
     "name": "Sara Ali Khan",
     "userImage": "https://homepages.cae.wisc.edu/~ece533/images/girl.png",
     "caption": "Worlds Best Player",
-    "time": "40 min ago",
+    "time": 1566297863339,
     "likes": 0,
     "id": 356546514648465454,
     "shared": "15k",
@@ -115,13 +115,13 @@ export const feeds = [
     "sharedUser": {
       "name": "Vikas yadav",
       "userProfile": "https://homepages.cae.wisc.edu/~ece533/images/girl.png",
-      "time": "30 min ago"
+      "time": 1566297863270
     }
   }, {
     "name": "Alia Bhatt",
     "userImage": "https://homepages.cae.wisc.edu/~ece533/images/girl.png",
     "caption": "Worlds Best Player",
-    "time": "40 min ago",
+    "time": 1566297863270,
     "likes": 0,
     "id": 74684516849684654,
     "shared": "15k",
@@ -135,7 +135,7 @@ export const feeds = [
     "sharedUser": {
       "name": "Vikas yadav",
       "userProfile": "https://homepages.cae.wisc.edu/~ece533/images/girl.png",
-      "time": "10 min ago"
+      "time": 1566297863270
     }
   }
 ]

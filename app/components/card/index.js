@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { Text, View, Image, TextInput, TouchableOpacity,TouchableWithoutFeedback, Share, FlatList, Dimensions } from 'react-native'
 import Styles from './styles'
+import moment from "moment";
 import { connect } from 'react-redux';
 import Heart from '../../themes/assets/resources/heart.png'
 import Like from '../../themes/assets/resources/like.png'
 import Video from 'react-native-video';
 import Images from '../../themes/images';
 import * as Animatable from 'react-native-animatable';
-import { fetchFeeds, updatePost } from '../../screens/feeds/actions';
+import { fetchFeeds, updateDislike, updateLike } from '../../screens/feeds/actions';
 const pulseNew = {
   0: {
     opacity: 1,
@@ -119,7 +120,6 @@ const pulseNew = {
   }
   
   videoPost = () => {
-    // console.log("Visible is show ", this.props.visible)
     const { type, videoShared } = this.props.item
     if (type === 'video') {
       return (
@@ -137,25 +137,6 @@ const pulseNew = {
       return null
     }
   }
-  // videoPost = () => {
-  //   const { type, videoShared } = this.props.item
-
-  //   if (type === 'video') {
-  //     return (
-  //       <TouchableOpacity style={Styles.videoButton} onPress={() => { this.setState({ paused: !this.state.paused }) }} activeOpacity={0.5}>
-  //         <Video style={Styles.videoPost} onLayout={this.handleVideoLayout} source={{ uri: videoShared }} volume={this.state.volume} paused={this.state.paused}  />
-  //         {
-  //           (this.state.paused) ?
-  //             <Image style={Styles.playButton}
-  //               source={Images.playButton} resizeMode={'contain'} />
-  //             : null
-  //         }
-  //       </TouchableOpacity>
-  //     )
-  //   } else if (type === 'image') {
-  //     return null
-  //   }
-  // }
 
   caption = () => {
     const { caption } = this.props.item
@@ -175,9 +156,9 @@ const pulseNew = {
     })
     
     if(this.state.liked){
-      this.props.updateLike(this.props.item, false)
+      this.props.updateLiked(this.props.item)
     }else{
-      this.props.updateLike(this.props.item, true)
+      this.props.updateDisliked(this.props.item)
     }
   }
 
@@ -204,7 +185,7 @@ const pulseNew = {
           <View style={Styles.userNameView}>
             <Text style={Styles.userName}>{this.props.item.name}</Text>
             <View style={Styles.seenView}>
-              <Text style={Styles.timeText}>{this.props.item.time}</Text>
+              <Text style={Styles.timeText}>{moment(this.props.item.time).fromNow()}</Text>
               <Image style={Styles.eyeIcon} resizeMode={'contain'} source={Images.eyeIcon} />
               <Text style={Styles.viewText}> {this.props.item.views}</Text>
             </View>
@@ -253,6 +234,7 @@ const pulseNew = {
   }
 
   renderShared = () => {
+    
     const { userImage, isShared, sharedUser } = this.props.item
     if (isShared) {
       return (
@@ -264,7 +246,7 @@ const pulseNew = {
               </View>
               <View style={Styles.shareUserNameView}>
                 <Text style={Styles.sharedUserName}>{sharedUser.name}</Text>
-                <Text style={Styles.postSharedTime}>{sharedUser.time}</Text>
+                <Text style={Styles.postSharedTime}>{moment(sharedUser.time).fromNow()}</Text>
               </View>
             </View>
             <TouchableOpacity activeOpacity={0.5}>
@@ -299,7 +281,9 @@ const StateToProps = (state) => ({
 })
 const DispatchToProps = (dispatch) => {
   return {
-    updateLike: (item, like) => dispatch(updatePost(item, like))
+    updateDisliked: (item, like) => dispatch(updateDislike(item, like)),
+    updateLiked: (item, like) => dispatch(updateLike(item, like))
+    
   }
 }
 export default connect(StateToProps, DispatchToProps)(Card)

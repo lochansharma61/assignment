@@ -162,7 +162,7 @@ export default StyleSheet.create({
     },
     commentInput: {
         width: '80%', 
-        height: Metrics.screenHeight*0.0449, 
+        height: Metrics.screenHeight*0.1, 
         paddingHorizontal: Metrics.screenWidth*0.0266 
     },
     sendIcon: {

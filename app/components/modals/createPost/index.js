@@ -69,13 +69,11 @@ class CreatePost extends Component {
       const min = 1;
       const max = 10000000;
       const ranNum = min + Math.random() * (max - min)
-      console.log('rand', parseInt(ranNum));
-      
       let data = {
         "name": "Shahid Kapoor",
         "userImage": "https://homepages.cae.wisc.edu/~ece533/images/zelda.png",
         "caption": this.state.comment,
-        "time": "10 min ago",
+        "time": Date.now(),
         "likes": 0,
         "id": parseInt(ranNum),
         "shared": "5k",
@@ -105,14 +103,14 @@ class CreatePost extends Component {
         style={{ margin: 0 }}
         avoidKeyboard={(this.state.userImage.lenght > 0) ? false : true}
       >
-        <View style={{ flex: 1, justifyContent: 'flex-end', backgroundColor: 'rgba(0, 0, 0, 0.3)' }}>
-          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', padding: 10 }}>
+        <View style={styles.mainContainer}>
+          <View style={styles.subContainer}>
             <Text style={{ color: 'white', fontSize: 30 }}>CreatePost</Text>
             <TouchableOpacity onPress={() => this.onModalClose()}>
               <Image source={Images.cancle} style={{ height: 30, width: 30 }} />
             </TouchableOpacity>
           </View>
-          <View style={{ height: 400, width: '100%', backgroundColor: 'white', padding: 30 }}>
+          <View style={styles.inputContainer}>
             <Text>Post Description</Text>
             <TextInput
               placeholder="Write about your post…"
@@ -122,7 +120,7 @@ class CreatePost extends Component {
               value={this.state.comment}
               onChangeText={(text) => this.setState({ comment: text })}
             />
-            <TouchableOpacity onPress={() => this.postSubmit()} style={{ height: 50, width: 90, borderRadius: 10, backgroundColor: Colors.lightBlue, alignItems: 'center', justifyContent: 'center', marginTop: 30, alignSelf: 'center' }}>
+            <TouchableOpacity onPress={() => this.postSubmit()} style={styles.buttonContainer}>
               <Text style={{ color: 'white', fontSize: 20 }}>Post</Text>
             </TouchableOpacity>
           </View>

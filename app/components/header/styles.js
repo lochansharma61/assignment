@@ -8,10 +8,9 @@ export default StyleSheet.create({
     container: {
         width: '100%', 
         backgroundColor: Colors.blue, 
-        height: Metrics.screenHeight*0.131, 
+        height: Metrics.screenHeight*0.1, 
         justifyContent: 'space-between', 
         flexDirection: 'row',    
-        paddingTop: Metrics.screenHeight*0.0434, 
         paddingHorizontal: Metrics.screenWidth*0.053,
         alignItems:'center'
     },

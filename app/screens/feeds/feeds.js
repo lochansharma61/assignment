@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, FlatList, KeyboardAvoidingView, Image, TouchableOpacity } from 'react-native'
+import { View, FlatList, KeyboardAvoidingView, Image, TouchableWithoutFeedback, SafeAreaView } from 'react-native'
 import Headers from '../../components/header/index'
 import Card from '../../components/card/index'
 import UserSuggetion from '../../components/userSuggestion/index'
@@ -9,8 +9,8 @@ import Styles from './styles'
 import Images from '../../themes/images';
 import { connect } from 'react-redux';
 import * as actions from './actions'
-import styles from '../../components/buisness/styles';
 import CreatePost from '../../components/modals/createPost';
+import Colors from '../../themes/colors';
 
 
 class Feeds extends Component {
@@ -29,18 +29,8 @@ class Feeds extends Component {
   }
 
   componentDidMount() {
-    // let mydata = []
-    // for(i=1 ; i<=20 ; i++){
-    //   mydata.push(i)
-    // }
     this.props.fetchFeeds()
-    // this.setState({
-    //   dataSource: this.props.feeds
-    // })
   }
-  // renderMoveScoll=(e)=>{
-  //   this.setState({moveScroll:true, e})
-  // }
 
   componentWillReceiveProps(newProps) {
     if (this.state.props != newProps) {
@@ -55,7 +45,6 @@ class Feeds extends Component {
     this.setState({ openCreatePostModel: val })
 }
 
-  // moveScroll={this.state.moveScroll}
 
   renderItem = ({ item, index }) => {
     if (item.feedType === 'post') {
@@ -85,11 +74,9 @@ class Feeds extends Component {
 
 
   render() {
-    // console.log("scrolllllll", this.state.visible);
-
-
     return (
-      <View style={Styles.container}>
+      <SafeAreaView style={{backgroundColor: Colors.blue, flex: 1}}>
+        <View style={Styles.container}>
         <Headers title={'Social Feeds'} image={Images.logo} backImage={Images.frame} frameText={'99+'} />
         <KeyboardAvoidingView behavior='position'
           keyboardVerticalOffset={5} enabled>
@@ -103,21 +90,22 @@ class Feeds extends Component {
             keyExtractor={(item, index) => index.toString()}
           />
         </KeyboardAvoidingView>
-        <TouchableOpacity 
+        <TouchableWithoutFeedback 
         onPress={() => this.setState({ openCreatePostModel: true }, ()=>{console.log('this.state.openCreatePost', this.state.openCreatePostModel)})}
         >
           <Image
             source={Images.add}
             style={Styles.image}
           />
-        </TouchableOpacity>
+        </TouchableWithoutFeedback>
         <CreatePost
           openModel={this.state.openCreatePostModel}
           onClose={this.onModalClose}
           type={'feedsHome'}
           withCommentBox={true}
         />
-      </View>
+        </View>
+      </SafeAreaView>
     )
   }
 }
